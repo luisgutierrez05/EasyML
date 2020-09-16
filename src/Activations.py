@@ -1,7 +1,5 @@
 class Relu:
     def forward(x):
-        return max(0, x)
+        return [max(0, y) for y in x]
     def backwards(x):
-        if x > 0:
-            return 1
-        return 0
+        return [1 if y > 0 else 0 for y in x]
