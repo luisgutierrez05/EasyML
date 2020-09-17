@@ -1,5 +1,5 @@
 class MeanSquaredError:
     def forward(self, y, yhat):
-        return (y - yhat) ** 2
+        return np.array((y - yhat) ** 2)
     def backward(self, y, yhat):
-        return -2 * (y - yhat)
+        return np.array(-2 * (y - yhat))
