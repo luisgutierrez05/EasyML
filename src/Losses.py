@@ -1,3 +1,5 @@
+import numpy as np
+
 class MeanSquaredError:
     def forward(self, y, yhat):
         return np.array((y - yhat) ** 2)
