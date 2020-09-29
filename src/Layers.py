@@ -15,11 +15,11 @@ class Input_Layer:
 class Dense:
     def __init__(self, unit_num, activation = Activations.Relu, name = "Dense"):
         self.unit_num = unit_num
+        self.activation = activation
         if name is None:
             self.name = self.__repr__()
         else:
             self.name = name
-        self.activation = activation
 
     def __repr__(self):
         return f"Dense({self.unit_num})"
@@ -29,4 +29,7 @@ class Dense:
         self.b = np.random.randn(self.unit_num)
 
     def forward(self, prev_layer):
-        return self.activation(prev_layer @ self.w + self.b)
+        return self.activation.forward(prev_layer @ self.w + self.b)
+
+    def backwards(self, lr, prev_grad):
+        pass
